@@ -13,11 +13,10 @@ export const siteConfig: SiteConfig = {
 	subtitle: "人生记录",
 
 	// 站点 URL
-	site_url: "https://213740671.github.io/Firefly",
+	site_url: "https://kos.indevs.in",
 
 	// 站点描述
-	description:
-		"碎碎念",
+	description: "碎碎念",
 
 	// 站点关键词
 	keywords: [

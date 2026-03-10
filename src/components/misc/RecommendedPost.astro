@@ -33,8 +33,8 @@ const relatedIds = JSON.stringify(relatedPosts.map((p) => p.id));
         </span>
       </div>
       {relatedPosts.map((post, idx) => (
-        <a
-          href={getPostUrlBySlug(post.id)}
+          <a
+            href={getPostUrlBySlug(post.data.slug || post.id)}
           class:list={[
             "group flex items-center gap-3 px-3 py-3 -mx-1 rounded-lg",
             "transition-all hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98]",
@@ -119,8 +119,9 @@ function renderRandomPosts() {
     var fragment = document.createDocumentFragment();
     var base = apiUrl.replace(/\/api\/allPostMeta\.json$/, '');
 
-    picked.forEach(function(post, idx) {
-      var href = base + '/posts/' + post.id + '/';
+     picked.forEach(function(post, idx) {
+       var postSlug = (post.slug && String(post.slug).trim()) ? String(post.slug).trim() : post.id;
+       var href = base + '/posts/' + postSlug + '/';
 
       var a = document.createElement('a');
       a.href = href;

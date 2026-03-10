@@ -134,6 +134,10 @@ export type SiteConfig = {
 		 */
 		noReferrerDomains?: string[];
 	};
+
+	dev?: {
+		showDrafts?: boolean;
+	};
 };
 
 export type Favicon = {

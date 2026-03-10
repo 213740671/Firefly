@@ -34,8 +34,9 @@ import { url } from "@/utils/url-utils";
 export async function getStaticPaths() {
 	const blogEntries = await getSortedPosts();
 	return blogEntries.map((entry) => {
-		// 将 id 转换为 slug（移除扩展名）以匹配路由参数
-		const slug = removeFileExtension(entry.id);
+		const slug = entry.data.slug?.trim()
+			? entry.data.slug.trim()
+			: removeFileExtension(entry.id);
 		return {
 			params: { slug },
 			props: { entry },
